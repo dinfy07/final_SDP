@@ -3,12 +3,12 @@ package Restaurant;
 import Pizza.Pizza;
 
 public abstract class Restaurant {
-    private Pizza pizza;
     public int price;
 
-    Restaurant(Pizza pizza) {
-        this.pizza = pizza;
+    public void addPizza(Pizza pizza) {
+        this.price = this.price + pizza.getPrice();
     }
+
     public int getPrice() {
         return this.price;
     }

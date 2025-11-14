@@ -4,11 +4,12 @@ import Pizza.Pizza;
 
 public class AmericanRestaurant extends Restaurant {
     public int price = 100;
+    private Pizza pizza;
 
-    public AmericanRestaurant(Pizza pizza) {
-        super(pizza);
+    public void addPizza(Pizza pizza) {
         this.price = this.price + pizza.getPrice();
     }
+
 
     public void setPrice(int price) {
         this.price = price;

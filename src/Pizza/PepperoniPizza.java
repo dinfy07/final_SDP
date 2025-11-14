@@ -4,14 +4,24 @@ import Decorator.PizzaDecorator;
 
 public class PepperoniPizza implements Pizza {
     public String pizza = "Pepperoni";
+    public String prepare = "Preparing dough, tomato sauce, mozzarella, pepperoni for";
     public int price = 500;
+    public PizzaDecorator pizzaDecorator;
+    public int temperature = 400;
 
-    public PepperoniPizza(PizzaDecorator pizzaDecorator) {
-//        pizzaDecorator
+    public void addDecorator(PizzaDecorator pizzaDecorator) {
+        this.pizzaDecorator = pizzaDecorator;
+        this.price = this.price + pizzaDecorator.getPrice();
+        this.pizza = pizzaDecorator.getPizza() + this.pizza;
+//        System.out.println(this.price);
     }
 
-    public PepperoniPizza(){
+    public String preparing(){
+        return this.prepare + this.pizza;
+    }
 
+    public String cookPizza() {
+        return "Bake at" + this.temperature;
     }
     public void setPrice(int price) {
         this.price = price;
@@ -19,12 +29,5 @@ public class PepperoniPizza implements Pizza {
 
     public int getPrice() {
         return price;
-    }
-
-    public void prepare() {
-        System.out.println("Preparing dough, tomato sauce, mozzarella, pepperoni for " + pizza);
-    }
-    public void bake() {
-        System.out.println("Baking at 400°C until edges are crisp.");
     }
 }
