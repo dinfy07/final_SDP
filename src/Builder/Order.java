@@ -8,11 +8,12 @@ import Restaurant.Restaurant;
 
 public class Order {
     private String firstName;
-    private Restaurant restaurant;
-    private Pizza pizza;
-    private PizzaDecorator pizzaDecorator;
+    private int restaurant;
+    private int pizza;
+    private int pizzaDecorator;
     private KaspiAlaqan paymentType;
     private FacadePizza facadePizza;
+    private Restaurant finalPizza;
 
     private Order(Builder builder){
         System.out.println("Your order has been created");
@@ -22,20 +23,15 @@ public class Order {
         this.pizza = builder.pizza;
         this.paymentType = builder.paymentType;
         this.facadePizza = new FacadePizza(this.restaurant, this.pizza, this.pizzaDecorator);
-        this.restaurant = facadePizza.countPizza();
-        System.out.println("Your order cost:" + this.restaurant.getPrice());
+        this.finalPizza = facadePizza.countPizza();
+        System.out.println("Your order cost:" + this.facadePizza.getPrice());
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
+    public Restaurant getFinalPizza() {
+        return finalPizza;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public void setPizza(Pizza pizza) {
-        this.pizza = pizza;
     }
 
     public void setPaymentType(KaspiAlaqan paymentType) {
@@ -46,23 +42,16 @@ public class Order {
         paymentType.pay();
     }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public void setPizzaDecorator(PizzaDecorator pizzaDecorator) {
-        this.pizzaDecorator = pizzaDecorator;
-    }
 
     public void cookPizza(){
-        this.facadePizza.cookPizza();
+        this.finalPizza.cookPizza();
         System.out.println(this.firstName + "your order has been created");
     }
     public static class Builder {
         private String firstName;
-        private Restaurant restaurant;
-        private Pizza pizza;
-        private PizzaDecorator pizzaDecorator;
+        private int restaurant;
+        private int pizza;
+        private int pizzaDecorator;
         private KaspiAlaqan paymentType;
 
         public Builder firstName(String firstName){
@@ -70,18 +59,18 @@ public class Order {
             return this;
         }
 
-        public Builder pizza(Pizza pizza){
+        public Builder pizza(int pizza){
             this.pizza = pizza;
             return this;
         }
 
-        public Builder restaurant(Restaurant restaurant){
+        public Builder restaurant(int restaurant){
             this.restaurant = restaurant;
             return this;
         }
 
-        public Builder pizzaDecorator(PizzaDecorator decorator){
-            if (decorator != null){
+        public Builder pizzaDecorator(int decorator){
+            if (decorator != 0){
                 this.pizzaDecorator = decorator;
                 return this;
             }

@@ -6,10 +6,15 @@ public class AmericanRestaurant extends Restaurant {
     public int price = 100;
     private Pizza pizza;
 
-    public void addPizza(Pizza pizza) {
+    public AmericanRestaurant(Pizza pizza) {
+        this.pizza = pizza;
         this.price = this.price + pizza.getPrice();
     }
 
+    public void cookPizza(){
+        System.out.println(this.pizza.preparing());
+        System.out.println(this.pizza.cookPizza());
+    }
 
     public void setPrice(int price) {
         this.price = price;

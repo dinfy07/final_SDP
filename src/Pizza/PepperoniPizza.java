@@ -9,11 +9,13 @@ public class PepperoniPizza implements Pizza {
     public PizzaDecorator pizzaDecorator;
     public int temperature = 400;
 
-    public void addDecorator(PizzaDecorator pizzaDecorator) {
+    public PepperoniPizza(PizzaDecorator pizzaDecorator) {
         this.pizzaDecorator = pizzaDecorator;
         this.price = this.price + pizzaDecorator.getPrice();
         this.pizza = pizzaDecorator.getPizza() + this.pizza;
-//        System.out.println(this.price);
+    }
+
+    public PepperoniPizza() {
     }
 
     public String preparing(){

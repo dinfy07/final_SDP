@@ -16,21 +16,17 @@ public class Main {
     public static void main(String[] args) {
 //        14.11.2025
         Visitor November14 = new CounterVisitor();
-        Restaurant americanRestaurant = new AmericanRestaurant();
-        Restaurant italianRestaurant = new ItalianRestaurant();
-        Pizza pepperoniPizza = new PepperoniPizza();
-        Pizza margheritaPizza = new MargheritaPizza();
-        PizzaDecorator cheeseDecorator = new CheeseDecorator();
-        PizzaDecorator pineappleDecorator = new PizzaDecorator();
 
         KaspiAlaqan paymentWithKaspiAlaqan = new PaymentAdapter();
 
-
+        System.out.println("Choose restaurant type: 1 - American, 2 - Italian");
+        System.out.println("Choose pizza type: 1 - Pepperoni, 2 - Margherita");
+        System.out.println("Choose pizza decorator type: 0 - none, 1 - Cheese, 2 - Pineapple");
         Order studentBeybitYeshimkul = new Order.Builder()
                 .firstName("Beybit")
-                .restaurant(italianRestaurant)
-                .pizza(pepperoniPizza)
-                .pizzaDecorator(cheeseDecorator)
+                .restaurant(1)
+                .pizza(2)
+                .pizzaDecorator(1)
                 .paymentType(paymentWithKaspiAlaqan)
                 .build();
 

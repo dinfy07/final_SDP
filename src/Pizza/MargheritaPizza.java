@@ -10,10 +10,12 @@ public class MargheritaPizza implements Pizza {
     public int temperature = 450;
 
 
-    public void addDecorator(PizzaDecorator pizzaDecorator) {
+    public MargheritaPizza(PizzaDecorator pizzaDecorator) {
         this.pizzaDecorator = pizzaDecorator;
         this.price = this.price + pizzaDecorator.getPrice();
         this.pizza = pizzaDecorator.getPizza() + this.pizza;
+    }
+    public MargheritaPizza() {
     }
 
     public String preparing(){

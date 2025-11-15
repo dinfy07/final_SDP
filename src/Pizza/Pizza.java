@@ -8,7 +8,6 @@ public interface Pizza {
 
     void setPrice(int price);
     int getPrice();
-    void addDecorator(PizzaDecorator pizzaDecorator);
     String preparing();
     String cookPizza();
 }
